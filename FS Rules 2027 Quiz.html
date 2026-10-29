@@ -1,0 +1,658 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>FS Rules 2027 Quiz</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Saira+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a technical inspection sheet — navy band with the title, then one working column (settings, question, result). */
+:root{
+  --paper:#EDF0F5; --sheet:#FBFCFE; --ink:#14213A; --muted:#56637A; --line:#CBD3DF;
+  --band:#132A56; --band-ink:#F3F6FB; --band-muted:#B3C3DF; --band-line:#2B4579;
+  --btn:#132A56; --btn-ink:#FFFFFF; --focus:#2C5BB8; --sel:#E1E8F5;
+  --ok:#1D7748; --ok-soft:#DCF0E4; --bad:#B42318; --bad-soft:#FBE2DE;
+  --ro-blue:#2F5FD0; --ro-yellow:#FCD116; --ro-red:#CE1126;
+  --f-display:"Saira Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1322; --sheet:#151D30; --ink:#E5EAF3; --muted:#9AA6BC; --line:#2A3651;
+    --band:#10244A; --band-ink:#EEF2F9; --band-muted:#9DB0D2; --band-line:#29426F;
+    --btn:#A3BDEE; --btn-ink:#0D1322; --focus:#A3BDEE; --sel:#22304D;
+    --ok:#62C793; --ok-soft:#143228; --bad:#F2907F; --bad-soft:#3A1F1F;
+    --ro-blue:#5584EA; --ro-yellow:#FCD116; --ro-red:#E8384F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1322; --sheet:#151D30; --ink:#E5EAF3; --muted:#9AA6BC; --line:#2A3651;
+  --band:#10244A; --band-ink:#EEF2F9; --band-muted:#9DB0D2; --band-line:#29426F;
+  --btn:#A3BDEE; --btn-ink:#0D1322; --focus:#A3BDEE; --sel:#22304D;
+  --ok:#62C793; --ok-soft:#143228; --bad:#F2907F; --bad-soft:#3A1F1F;
+  --ro-blue:#5584EA; --ro-yellow:#FCD116; --ro-red:#E8384F;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .wrap{padding-block:28px 26px;display:grid;gap:10px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--band-muted);font-weight:500}
+.marks{display:flex;gap:5px}
+.marks i{width:9px;height:9px;transform:rotate(45deg);display:block}
+.marks i:nth-child(1){background:var(--ro-blue)}
+.marks i:nth-child(2){background:var(--ro-yellow)}
+.marks i:nth-child(3){background:var(--ro-red)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2.1rem,7vw,3rem);line-height:.95;letter-spacing:.015em;text-transform:uppercase;margin:0;text-wrap:balance}
+.lede{margin:0;color:var(--band-muted);max-width:62ch}
+.lede b{color:var(--band-ink);font-weight:600}
+
+main.wrap{padding-block:18px 48px;display:grid;gap:16px}
+
+/* settings */
+details.setup{background:var(--sheet);border:1px solid var(--line);border-radius:8px}
+details.setup>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+details.setup>summary::-webkit-details-marker{display:none}
+.sumtext{font-size:.92rem;color:var(--muted);min-width:0}
+.sumtext b{color:var(--ink);font-weight:600}
+.sumlink{font-size:.88rem;font-weight:600;color:var(--focus);white-space:nowrap}
+details[open] .sumlink .closed{display:none}
+details:not([open]) .sumlink .open{display:none}
+.setbody{padding:4px 16px 16px;display:grid;gap:16px;border-top:1px solid var(--line)}
+.field{display:grid;gap:8px;padding-top:12px}
+.flabel{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.chip{border:1px solid var(--line);background:var(--paper);border-radius:6px;padding:7px 12px;cursor:pointer;font-size:.92rem;line-height:1.3}
+.seg button[aria-pressed="true"],.chip[aria-pressed="true"]{background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
+.chip .cnt{font-family:var(--f-mono);font-size:.78rem;opacity:.75;margin-left:6px}
+.hint{font-size:.86rem;color:var(--muted);margin:0}
+.hint.warn{color:var(--bad)}
+.setfoot{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+.primary{background:var(--btn);color:var(--btn-ink);border:1px solid var(--btn);border-radius:6px;padding:10px 18px;font-weight:600;cursor:pointer}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.ghost{background:transparent;border:1px solid var(--line);border-radius:6px;padding:10px 16px;font-weight:500;cursor:pointer}
+.ghost:hover{border-color:var(--focus)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* quiz card */
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:18px 16px 16px;display:grid;gap:14px;scroll-margin-top:12px}
+.prog{display:grid;gap:8px}
+.progrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.counter{font-family:var(--f-display);font-weight:600;font-size:1.35rem;letter-spacing:.02em;line-height:1}
+.counter span{color:var(--muted);font-size:1rem}
+.tally{font-size:.88rem;color:var(--muted)}
+.tally b{color:var(--ok);font-weight:600}
+.track{height:6px;background:var(--paper);border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.track i{display:block;height:100%;background:var(--btn);transition:width .25s ease}
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.chap{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ref{font-family:var(--f-mono);font-size:.8rem;border:1px solid var(--line);border-radius:4px;padding:2px 7px;color:var(--ink);white-space:nowrap}
+.qtext{font-size:1.18rem;line-height:1.4;font-weight:600;margin:0;text-wrap:pretty}
+.opts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.opt{width:100%;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;text-align:left;background:var(--sheet);border:1px solid var(--line);border-radius:7px;padding:11px 12px;cursor:pointer;line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--focus)}
+.opt .key{font-family:var(--f-mono);font-size:.82rem;width:26px;height:26px;display:grid;place-items:center;border:1px solid var(--line);border-radius:5px;background:var(--paper)}
+.opt .otext{min-width:0;padding-top:2px}
+.opt[aria-pressed="true"]{background:var(--sel);border-color:var(--btn)}
+.opt[aria-pressed="true"] .key{background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
+.opt:disabled{cursor:default}
+.opt.dim{opacity:.62}
+.opt.is-ok{background:var(--ok-soft);border-color:var(--ok);opacity:1}
+.opt.is-ok .key{background:var(--ok);border-color:var(--ok);color:var(--sheet)}
+.opt.is-bad{background:var(--bad-soft);border-color:var(--bad);opacity:1}
+.opt.is-bad .key{background:var(--bad);border-color:var(--bad);color:var(--sheet)}
+.explain{border-left:3px solid var(--ok);background:var(--paper);border-radius:0 6px 6px 0;padding:10px 12px;display:grid;gap:4px}
+.explain.bad{border-left-color:var(--bad)}
+.verdict{font-weight:600}
+.explain.ok .verdict{color:var(--ok)}
+.explain.bad .verdict{color:var(--bad)}
+.explain p{margin:0}
+.explain .src{font-size:.86rem;color:var(--muted)}
+.explain .src code{font-family:var(--f-mono);color:var(--ink)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.keys{font-size:.8rem;color:var(--muted)}
+.keys kbd{font-family:var(--f-mono);font-size:.75rem;border:1px solid var(--line);border-radius:3px;padding:0 4px;background:var(--paper)}
+@media (hover:none){.keys{display:none}}
+
+/* results */
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.big{font-family:var(--f-display);font-weight:700;font-size:clamp(3rem,12vw,4.4rem);line-height:.9;letter-spacing:.01em}
+.big span{color:var(--muted);font-size:.5em}
+.pct{font-family:var(--f-display);font-weight:600;font-size:1.6rem;color:var(--muted)}
+.rlabel{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+.chrows{display:grid;gap:8px}
+.chrow{display:grid;grid-template-columns:minmax(0,1fr) 120px 3.4em;gap:10px;align-items:center;font-size:.92rem}
+.chrow .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.chrow .bar{height:8px;background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.chrow .bar i{display:block;height:100%;background:var(--ok)}
+.chrow .bar i.mid{background:var(--focus)}
+.chrow .bar i.low{background:var(--bad)}
+.miss{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.miss li{border:1px solid var(--line);border-radius:7px;padding:12px;display:grid;gap:6px}
+.miss .mq{font-weight:600;margin:0}
+.miss .ans{font-size:.92rem;margin:0}
+.miss .ans.y{color:var(--bad)}
+.miss .ans.c{color:var(--ok)}
+.miss .mexp{font-size:.92rem;margin:0;color:var(--ink)}
+.miss .mref{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.reread{font-family:var(--f-mono);font-size:.88rem;margin:0;overflow-wrap:anywhere}
+.allgood{margin:0;color:var(--ok);font-weight:600}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.share{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.share label{font-size:.86rem;color:var(--muted)}
+.sharerow{display:flex;gap:8px;flex-wrap:wrap}
+.sharerow input{flex:1 1 200px;min-width:0;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.copyout{width:100%;min-height:110px;font-family:var(--f-mono);font-size:.8rem;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--paper);resize:vertical}
+.toast{font-size:.86rem;color:var(--ok);min-height:1.3em;margin:0}
+
+footer.wrap{padding-block:0 40px}
+footer p{font-size:.84rem;color:var(--muted);margin:0;max-width:68ch}
+
+@media (max-width:480px){
+  .chrow{grid-template-columns:minmax(0,1fr) 70px 3.2em}
+  .qtext{font-size:1.08rem}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow"><span class="marks" aria-hidden="true"><i></i><i></i><i></i></span>T.U. Iași Racing · Recruit training</div>
+    <h1>FS Rules 2027 Quiz</h1>
+    <p class="lede">Multiple-choice questions with four options from the <b>Formula Student Rules 2027</b>, each with the rule where you can find the answer. In <b>Learning</b> mode you see the explanation right away; in <b>Test</b> mode you see your score at the end.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <details class="setup" id="setup">
+    <summary>
+      <span class="sumtext" id="sumtext"></span>
+      <span class="sumlink"><span class="closed">Change settings</span><span class="open">Hide settings</span></span>
+    </summary>
+    <div class="setbody">
+      <div class="field">
+        <span class="flabel" id="lbl-mode">Mode</span>
+        <div class="seg" role="group" aria-labelledby="lbl-mode" id="seg-mode">
+          <button type="button" id="mode-learn" data-mode="learn">Learning</button>
+          <button type="button" id="mode-test" data-mode="test">Test</button>
+        </div>
+        <p class="hint" id="mode-hint"></p>
+      </div>
+      <div class="field">
+        <span class="flabel" id="lbl-ch">Chapters</span>
+        <div class="seg" role="group" aria-labelledby="lbl-ch" id="seg-ch"></div>
+        <p class="hint" id="ch-hint"></p>
+      </div>
+      <div class="field">
+        <span class="flabel" id="lbl-n">Number of questions</span>
+        <div class="seg" role="group" aria-labelledby="lbl-n" id="seg-n"></div>
+        <p class="hint">Questions are drawn at random, in proportion to each chapter. The answer options are shuffled on every run.</p>
+      </div>
+      <div class="setfoot">
+        <button type="button" class="primary" id="btn-start">Start a new quiz</button>
+      </div>
+    </div>
+  </details>
+
+  <section class="card" id="quiz" aria-live="polite"></section>
+</main>
+
+<footer class="wrap">
+  <p>Questions are based on the Formula Student Rules 2027, Version 1.0. If anything is unclear, the official rules text, the FAQ on the competition website and the event's Event Handbook take precedence (A 3.1.4).</p>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+const CH = [
+  ["A","Administrative & conduct"],
+  ["T","General technical requirements"],
+  ["CV","Combustion engine"],
+  ["IN","Technical Inspection"],
+  ["S","Static disciplines"],
+  ["D","Dynamic disciplines"]
+];
+const CHN = Object.fromEntries(CH);
+
+/* Each question: c = chapter, q = question, o = options (the first is correct; shuffled on display), e = explanation, r = rule reference. */
+const Q = [
+/* ---------- A ---------- */
+{c:"A",q:"What is the official language of the competition?",o:["English","The language of the host country","German","English or the host country's language, as the team chooses"],e:"The rules make English the official language. Documents, presentations and discussions with officials are in English.",r:"A 1.3.1"},
+{c:"A",q:"What is the maximum overall score in the CV and EV classes?",o:["1000 points","600 points","1200 points","875 points"],e:"Table 1 gives a maximum of 1000 points for CV and EV. The Driverless Cup has its own maximum of 600.",r:"A 1.2.5, Table 1"},
+{c:"A",q:"Which discipline is worth the most points?",o:["Endurance","Engineering Design","Autocross","Cost and Manufacturing"],e:"Endurance is worth 250 points, followed by Engineering Design with 150, then Autocross and Cost and Manufacturing with 100 each.",r:"Table 1"},
+{c:"A",q:"Who may make design decisions or produce drawings for the car?",o:["Only the student team members","The faculty advisors","Sponsor engineers, if they are declared","Anyone, as long as the team credits them in the TVSD"],e:"Professionals and academics may only give information as a discussion of alternatives with their pros and cons. They must not make design decisions or drawings.",r:"A 2.1.1 – A 2.1.3"},
+{c:"A",q:"How long may a vehicle be used in competition?",o:["One year, counted from the first day on site of its first event","One calendar season","Two years, if the chassis is unchanged","Indefinitely, as long as it passes Technical Inspection"],e:"A new vehicle needs a newly manufactured chassis. Exception: the chassis may be used for one more consecutive year when the powertrain changes from CV to EV or HY, or for the first implementation of an Autonomous System.",r:"A 2.2.1 – A 2.2.3"},
+{c:"A",q:"Which of the following may NOT be a team member?",o:["A PhD student","A master's student","A bachelor's graduate who finished 5 months ago","A first-year student aged 18"],e:"PhD students may not participate. Graduates remain eligible for seven months after graduating, and the minimum age is 18.",r:"A 4.2.6, A 4.2.7, A 4.2.9"},
+{c:"A",q:"How many teams can one university register?",o:["One CV team and one EV team","Only one","As many as it wants","Two CV teams and one EV team"],e:"Both may also take part in the Driverless Cup. A team with members from several universities counts as a single team.",r:"A 4.1.1, A 4.1.3"},
+{c:"A",q:"What alcohol limit applies to team members on the event site?",o:["0.0 ‰","0.2 ‰","0.5 ‰","No limit for people who are not driving"],e:"The limit applies to every team member, not only the drivers. Violators are disqualified and immediately expelled from the event site.",r:"A 6.5.1, A 6.5.2"},
+{c:"A",q:"A team member ignores an instruction an official gave directly to the team. What happens?",o:["25 penalty points are deducted from the team's overall score","The member gets a verbal warning only","The team is disqualified immediately","10 penalty points are deducted"],e:"Arguing with or disobeying an official can lead to penalties up to disqualification from the event.",r:"A 3.2.1, A 3.3.1"},
+{c:"A",q:"What must a team post for its protest to be considered?",o:["A protest bond of 25 points, forfeited if the protest is rejected","A fee of €100","The signatures of two officials","A video of the incident"],e:"The team captain submits the protest in writing within the announced protest period. The officials' decision is written and final.",r:"A 3.7.2, A 3.7.3"},
+{c:"A",q:"How many penalty points does a rule violation carry when no other penalty is defined?",o:["At least 20","Exactly 10","At least 50","None, only a warning"],e:"Penalty points are deducted from the team's overall score.",r:"A 3.8.1"},
+{c:"A",q:"A required document is submitted 6 hours after the deadline. What happens?",o:["10 penalty points are deducted","The team is de-registered","Nothing, if the document is complete","25 penalty points are deducted"],e:"Each late submission costs 10 points. If the document is still missing 24 hours after the deadline, the team is de-registered from the event.",r:"A 5.4.1, A 5.4.2"},
+{c:"A",q:"The officials request a correction to a document. How long does the team have to submit the corrected version?",o:["168 hours (7 days)","24 hours","48 hours","Until the event starts"],e:"If the corrected version does not contain all the requested corrections, the team is de-registered.",r:"A 5.3.1, A 5.3.4"},
+{c:"A",q:"What is the maximum length of the Vehicle Status Video (VSV)?",o:["60 seconds","30 seconds","2 minutes","5 minutes"],e:"It must be one continuous third-person video with no edited sequences, with the car in ready-to-race condition. It includes straight driving of at least 30 m at a minimum of 10 km/h.",r:"A 5.6.3, A 5.6.4"},
+{c:"A",q:"What happens if a team removes its car from the event site after the event has begun?",o:["The team is disqualified from the event","20 penalty points are deducted","It is allowed if the officials are informed","It is allowed for repairs only"],e:"There is no exception: the car stays on site until the end of the event.",r:"A 6.1.1"},
+{c:"A",q:"Where may the car move under its own power?",o:["Only on the Test Area and the competition tracks","Anywhere, at walking pace","In the paddock, with a team member walking in front","On access roads, if the driver wears a dynamic vest"],e:"Everywhere else the car is pushed with the push bar at a normal walking pace.",r:"A 6.6.2, A 6.6.5"},
+{c:"A",q:"When the car is pushed through the paddock, what must the team member in the cockpit wear?",o:["The driver equipment, except helmet, arm restraints and balaclava","Full driver equipment, including the helmet","Just the dynamic vest","Nothing special, if the engine is off"],e:"The person in the cockpit must have full control of steering and braking. While the push bar is attached, the engine stays off.",r:"A 6.6.5 – A 6.6.7"},
+{c:"A",q:"Is it allowed to run the engine in the pits?",o:["No. Engines may only run in the Engine Test Area and the dynamic area, under the conditions in the rules","Yes, with a fire extinguisher next to the car","Yes, if the driven wheels are removed","Yes, at idle for up to 30 seconds"],e:"In the pits only cranking is allowed: Mechanical Inspection passed, driven wheels removed, gearbox in neutral, injector and ignition coil connectors detached, and a fire extinguisher next to the engine.",r:"A 6.7.1 – A 6.7.3"},
+{c:"A",q:"Where may the car be refueled at the event?",o:["Only at the official fuel station","In the team's pit, from a closed jerry can","Anywhere, with a fire extinguisher at hand","In the Engine Test Area"],e:"Open fuel containers are not allowed on the event site.",r:"A 6.8.1, A 6.8.2"},
+{c:"A",q:"Where must carbon fiber be sanded or cut at the event?",o:["In the designated power tools area","In the team's pit, with a vacuum cleaner","Anywhere, wearing a dust mask","In the charging area"],e:"Minor tasks, such as drilling a small hole, are excluded if the operator and nearby people are protected and the dust is cleaned up immediately.",r:"A 6.4.4"},
+{c:"A",q:"Who does the Code of Conduct apply to?",o:["Everyone present, for the whole event, including accommodation, campsites and official online channels","Only the drivers, on track","Only team members, in the paddock","Only the team captain"],e:"The team captain must make sure every member has read it before arriving. Handling a breach inside the team instead of reporting it is itself a breach.",r:"A 3.9.2, A 3.9.5"},
+
+/* ---------- T ---------- */
+{c:"T",q:"What is the minimum wheelbase?",o:["1525 mm","1500 mm","1600 mm","1450 mm"],e:"The smaller track (front or rear) must be at least 75 % of the larger track.",r:"T 2.9.1, T 2.9.2"},
+{c:"T",q:"What is the minimum static ground clearance, with the driver seated?",o:["30 mm","25 mm","50 mm","15 mm"],e:"It applies to every part of the car except the tires. Sliding skirts or other devices that touch the track surface are prohibited.",r:"T 2.2.1, T 2.2.2"},
+{c:"T",q:"What travel must the suspension have?",o:["Usable wheel travel of at least 50 mm, with at least 25 mm of jounce with the driver seated","At least 30 mm in total","At least 100 mm","No requirement, only working dampers"],e:"Front and rear suspension must be fully operational, with shock absorbers. All suspension mounting points must be visible at Technical Inspection.",r:"T 2.5.1, T 2.5.2"},
+{c:"T",q:"What is the maximum allowed steering free play, measured at the steering wheel?",o:["7°","3°","10°","15°"],e:"The steering must not deform excessively under driver loads either. An official may check this from the cockpit with the car stationary.",r:"T 2.8.4"},
+{c:"T",q:"How must the steering wheel be attached?",o:["With a quick disconnect the driver can operate from the driving position while wearing gloves","With a bolt, for safety","Welded to the steering column","Any way, as long as the wheel is round"],e:"The wheel must have a near-circular or near-oval perimeter with no concave sections, and its top must not be higher than the top of the front hoop.",r:"T 2.8.5, T 2.8.7, T 2.8.8"},
+{c:"T",q:"What must the main hoop be made of?",o:["A single piece of uncut, continuous, closed-section steel tubing","Welded aluminium","Any metal, with calculations in the SES","Composite, if a bending test is done"],e:"The main hoop and its bracing must be steel. The front hoop must be metal and may be a welded aluminium structure.",r:"T 3.9.1, T 3.4.1"},
+{c:"T",q:"What is the minimum wall thickness of steel tubing for the main and front hoops?",o:["2.0 mm","1.2 mm","1.6 mm","2.5 mm"],e:"Impact structures, the front bulkhead and roll hoop bracing need at least 1.2 mm (Table 2).",r:"T 3.2.1, Table 2"},
+{c:"T",q:"What hole must each roll hoop have?",o:["One 4.5 mm inspection hole in a non-critical straight section","A 25 mm vent hole","None, holes are prohibited","Two 8 mm holes for the harness"],e:"Officials use it to check the wall thickness. The outer surface must be unobstructed for at least 180° so the tube dimensions can be measured.",r:"T 3.8.6"},
+{c:"T",q:"What does the “Percy” template (95th percentile male) check?",o:["That the helmet stays at least 50 mm from the line between the tops of the two roll hoops","That the driver fits in the cockpit with the steering wheel on","The maximum height of the car","The stopping distance in the Brake Test"],e:"The requirement applies to the template and to every driver on the team, seated normally and strapped in.",r:"T 4.3.1"},
+{c:"T",q:"How fast must the driver be able to exit the car?",o:["In less than 5 seconds","In less than 10 seconds","In less than 3 seconds","In less than 15 seconds"],e:"The driver starts fully seated, hands on the wheel, wearing full equipment. The time stops when both feet are on the ground.",r:"T 4.11.1"},
+{c:"T",q:"What is the maximum surface temperature of any part the driver can touch?",o:["60 °C","40 °C","80 °C","100 °C"],e:"The insulation must address conduction, convection and radiation, for example with an air gap of at least 25 mm and a solid metal heat shield of at least 0.4 mm.",r:"T 4.6.2"},
+{c:"T",q:"What separates the cockpit from the fuel system and the LV battery?",o:["A rigid, non-permeable firewall made of fire-retardant material","The driver's seat","The bodywork","Reflective foil"],e:"The firewall must seal completely against the passage of fluids, especially at the sides and floor of the cockpit.",r:"T 4.8.1, T 4.8.3, T 4.8.4"},
+{c:"T",q:"What type of driver harness is required?",o:["A 6- or 7-point harness","A 4-point harness","A 5-point harness","Any FIA-approved harness"],e:"It must meet SFI 16.1, 16.5, 16.6 or FIA 8853/2016, carry dated labels and have a single metal-to-metal quick release.",r:"T 5.2.1"},
+{c:"T",q:"What must the harness straps never do?",o:["Pass through a firewall","Attach to the primary structure","Have a quick adjuster on the lap belt","Be of the over-the-shoulder type"],e:"All harness attachment points must be on the driver's side of any firewall.",r:"T 5.3.2"},
+{c:"T",q:"What must the brake system be?",o:["Hydraulic, acting on all four wheels, operated by a single control, with two independent circuits","Hydraulic at the front and mechanical at the rear","Brake-by-wire with redundancy","Single-circuit, if the discs are doubled"],e:"Each circuit has its own fluid reserve. Brake-by-wire is prohibited in manual mode.",r:"T 6.1.1, T 6.1.2, T 6.1.6"},
+{c:"T",q:"What force must the brake pedal withstand without failure of the brake system?",o:["2 kN","1 kN","500 N","5 kN"],e:"At inspection, an official may press the pedal with the maximum force they can exert when seated normally.",r:"T 6.1.10"},
+{c:"T",q:"What does the Brake Over-Travel Switch (BOTS) do?",o:["Opens the Shutdown Circuit (SDC) when pedal over-travel occurs because a brake circuit has failed","Switches on the brake light","Limits brake pressure","Stops the engine under any hard braking"],e:"The driver must not be able to reset it, and repeated actuation must not close the SDC again.",r:"T 6.2.1, T 6.2.2"},
+{c:"T",q:"Which coolant may a water-cooled combustion engine use?",o:["Plain water only","Water with antifreeze","Distilled water with corrosion inhibitors","Any fire-retardant fluid"],e:"A water-to-air intercooler must also use plain water without any additives.",r:"T 7.2.1, CV 1.8.1"},
+{c:"T",q:"What is the minimum volume of a catch can for fluids other than water (e.g. oil)?",o:["10 % of the fluid or 900 mL, whichever is greater","100 mL","10 % of the fluid or 100 mL, whichever is smaller","500 mL"],e:"For plain-water systems the minimum is 10 % or 100 mL, whichever is greater.",r:"T 7.2.5, T 7.2.6"},
+{c:"T",q:"What must chain scatter shields be made of?",o:["Non-perforated 2 mm steel or 3 mm aluminium alloy 6061-T6","1 mm perforated sheet","2 mm carbon fiber","Any material, as long as it covers the chain"],e:"The shield must be at least three times the chain width and be attached with M6 grade 8.8 or stronger bolts.",r:"T 7.3.2, T 7.3.3"},
+{c:"T",q:"What is the maximum height of aerodynamic devices forward of the front tires?",o:["Below 350 mm from the ground","Below 500 mm","Below 700 mm","Below 1100 mm"],e:"Devices behind the head restraint may reach up to 1100 mm from the ground.",r:"T 8.2.1"},
+{c:"T",q:"What is the minimum requirement for a critical fastener?",o:["Steel, at least M4 grade 8.8, with an identifiable strength class","Steel, at least M6 grade 10.9","Titanium, at least M5","Any bolt, if torqued correctly"],e:"Unmodified OEM parts may use M3 grade 8.8. Critical fasteners are those in the primary structure, steering, brakes, driver harness and suspension.",r:"T 10.1.1, T 10.1.2"},
+{c:"T",q:"Which method is NOT accepted as positive locking for a critical fastener?",o:["Thread-locking adhesive","A nylon lock nut","A cotter pin","Correctly installed safety wire"],e:"Locking based on pre-tension or adhesive is not positive locking. Nylon lock nuts are accepted where no temperature rating above 80 °C is required.",r:"T 10.2.1, T 10.2.2"},
+{c:"T",q:"How many full threads must project from any lock nut?",o:["At least two","At least one","At least three","There is no requirement"],e:"This applies to every lock nut on the car.",r:"T 10.2.4"},
+{c:"T",q:"Where are the master switches mounted?",o:["On the right side, near the main hoop, at the driver's shoulder height","In the cockpit, next to the steering wheel","On the left side, behind the rear wheel","On the nose"],e:"They are rotary switches with a red removable handle that can only be removed in the off position. ON is the horizontal position.",r:"T 11.2.1 – T 11.2.3"},
+{c:"T",q:"How many shutdown buttons does the car have?",o:["Three: one on each side behind the driver and one in the cockpit","One, in the cockpit","Two, on the sides","Four, one next to each wheel"],e:"The side buttons are at least 40 mm in diameter, the cockpit button at least 24 mm. All are red, push-pull or push-rotate.",r:"T 11.4.1 – T 11.4.7"},
+{c:"T",q:"At what deceleration must the inertia switch trigger?",o:["Between 8 g and 11 g, depending on the duration","Above 20 g","Between 3 g and 5 g","Above 40 g"],e:"It latches until manually reset and must not contain any semiconductor components.",r:"T 11.5.1 – T 11.5.3"},
+{c:"T",q:"What does the BSPD do on a combustion car?",o:["Opens the SDC when hard braking occurs with the throttle more than 25 % over idle for more than 500 ms","Limits engine speed","Adjusts the brake balance","Measures fuel tank pressure"],e:"It is a standalone, non-programmable circuit. Hard braking is detected with a brake system pressure sensor, with a threshold of no more than 30 bar.",r:"T 11.6.1, T 11.6.2, T 11.6.5"},
+{c:"T",q:"What is the maximum voltage allowed in the Low Voltage System (LVS)?",o:["60 V DC or 50 V AC RMS","12 V DC","24 V DC","120 V DC"],e:"On CVs, the high-voltage systems for ignition and injectors are excluded from this limit.",r:"T 11.1.2, T 11.1.4"},
+{c:"T",q:"What fire extinguishers must the team have?",o:["At least two foam extinguishers with a valid inspection tag (in Europe rated at least 34B)","One 6 kg powder extinguisher","Two CO₂ extinguishers","One foam extinguisher, mounted on the car"],e:"Except for the initial inspection, one extinguisher must always be readily available in the team's paddock area. On CVs, one is mounted on the push bar.",r:"T 13.4.1 – T 13.4.3, T 13.1.5"},
+{c:"T",q:"What color must the push bar be?",o:["Red","Yellow","Orange","The team color"],e:"The university name is written on it. It must let two people slow, stop and pull the car.",r:"T 13.1.2 – T 13.1.4"},
+{c:"T",q:"How high must the jacks lift the driven wheels?",o:["At least 75 mm off the ground","At least 25 mm","At least 150 mm","Just clear of the ground"],e:"The jack pickup points are marked with orange triangles on both sides of the car.",r:"T 13.2.1, T 13.2.4"},
+{c:"T",q:"Which helmet is accepted for the driver?",o:["A closed-face helmet certified to a Snell, SFI or FIA standard","Any certified motocross helmet","An open-face helmet with goggles","Any ECE-approved motorcycle helmet"],e:"Open-face and off-road helmets without integrated eye shields are not approved. Every helmet is presented at Technical Inspection and stickered.",r:"T 13.3.2"},
+{c:"T",q:"What is the maximum age of the driver's fire-resistant clothing?",o:["10 years","5 years","3 years","No limit if it is in good condition"],e:"It must also be in good condition, with no tears, open seams or wear that could compromise its fire resistance.",r:"T 13.3.10, T 13.3.12"},
+{c:"T",q:"Which material is prohibited for the driver's underwear and socks?",o:["Nylon or other synthetic materials that melt in high heat","Nomex","Aramid","Indura"],e:"Nomex, Aramid, Belcotex and Indura are examples of approved fire-resistant materials.",r:"T 13.3.14, T 13.3.15"},
+{c:"T",q:"How much energy must the impact attenuator absorb in the impact test?",o:["At least 7350 J","At least 3500 J","At least 10 kJ","At least 735 J"],e:"The test: a 300 kg vehicle at 7 m/s, average deceleration no more than 20 g and peak no more than 40 g. ½ · 300 kg · (7 m/s)² = 7350 J.",r:"T 3.19.1"},
+{c:"T",q:"What is the minimum impact attenuator volume forward of the front bulkhead?",o:["100 mm high × 200 mm wide × 200 mm long","50 × 100 × 100 mm","150 × 300 × 300 mm","100 × 100 × 100 mm"],e:"No part of this volume may be more than 350 mm above the ground in any ready-to-race configuration.",r:"T 3.17.2"},
+{c:"T",q:"What does “open-wheeled” mean in the rules?",o:["The wheels are unobstructed in side view, with 75 mm keep-out zones in front of and behind the tires","The rims have no covers","The tires are visible from above","The front wheels have no fenders"],e:"The car must also be single-seat with an open cockpit and four wheels that are not in a straight line.",r:"T 2.1.2, T 2.1.3"},
+{c:"T",q:"Are tire warmers allowed?",o:["No","Yes, on the Test Area only","Yes, before Endurance","Yes, if they are electric"],e:"Agents that increase traction, applied to the tires or the track surface, are also prohibited.",r:"T 2.7.3, T 2.7.4"},
+{c:"T",q:"What is the minimum tread depth for wet tires?",o:["2.4 mm","1.6 mm","3 mm","1 mm"],e:"The tread pattern must be molded or cut by the tire manufacturer or its appointed agent.",r:"T 2.7.1"},
+{c:"T",q:"Which gas may a compressed gas system (e.g. a pneumatic shifter) use?",o:["Only air or pure nitrogen, at no more than 10 bar in the system","CO₂ or air, at no more than 20 bar","Any inert gas","Air, with no pressure limit"],e:"A cylinder may exceed 10 bar only with a regulator mounted directly on it that limits the output to 10 bar. Pressure must also be limited by a non-adjustable relief valve.",r:"T 9.3.1, T 9.3.2, T 9.3.4"},
+
+/* ---------- CV ---------- */
+{c:"CV",q:"What engine may a CV car use?",o:["A four-stroke piston engine with no more than 710 cm³ displacement per cycle","A two- or four-stroke engine up to 710 cm³","A four-stroke engine up to 610 cm³","Any engine, as long as it has a restrictor"],e:"Hybrid powertrains are also allowed, with electric motors connected to the engine, gearbox, wheels or turbines, using purely electrical energy storage.",r:"CV 1.1.1"},
+{c:"CV",q:"What is the maximum intake restrictor diameter for gasoline?",o:["20 mm","19 mm","22 mm","25 mm"],e:"For E85 the maximum is 19 mm. All engine airflow passes through a single circular restrictor, which must not be movable or flexible.",r:"CV 1.7.1, CV 1.7.2, CV 1.7.4"},
+{c:"CV",q:"What is the required component sequence for a naturally aspirated engine?",o:["Throttle body → restrictor → engine","Restrictor → throttle body → engine","Air filter → restrictor → compressor → engine","Restrictor → plenum → throttle body → engine"],e:"For turbocharged or supercharged engines it is restrictor → compressor → throttle body → engine. Plenums upstream of the throttle body are prohibited.",r:"CV 1.7.1, CV 1.8.3"},
+{c:"CV",q:"Which fuels may be used?",o:["Unleaded 98 RON gasoline and E85, provided at the event","Any commercial gasoline","100 RON gasoline brought by the team","Gasoline, diesel and E85"],e:"No agents other than fuel and air may be induced into the combustion chamber.",r:"CV 2.1.1 – CV 2.1.3"},
+{c:"CV",q:"How many return springs must a mechanically actuated throttle have?",o:["At least two at the throttle body, each able to return it to idle on its own","One, plus the spring in the TPS","One, if it is rated double","None, the throttle closes by itself"],e:"Springs inside the Throttle Position Sensor (TPS) do not count as return springs.",r:"CV 1.5.2 – CV 1.5.4"},
+{c:"CV",q:"What is the minimum distance between the fuel system and any exhaust component?",o:["50 mm","25 mm","100 mm","10 mm"],e:"Throttle cables need the same minimum distance from the exhaust.",r:"CV 2.2.3, CV 1.5.5"},
+{c:"CV",q:"What is the minimum vertical length of the fuel tank sight tube?",o:["125 mm","50 mm","200 mm","100 mm"],e:"The fuel level line is marked 12–25 mm below the top of its visible part. It is used for the Tilt Test and to measure the fuel used in Endurance.",r:"CV 2.6.1, CV 2.6.4"},
+{c:"CV",q:"Is wrapping the exhaust with heat tape (header wrap) allowed?",o:["No, fibrous or absorbent material on the outside of the exhaust is prohibited","Yes, if it is fire-retardant","Yes, only near the cockpit","Yes, it is recommended"],e:"Exhaust parts protruding from the side of the chassis in front of the rear axle must be shielded so people cannot touch them.",r:"CV 3.1.3, CV 3.1.4"},
+{c:"CV",q:"Where may the exhaust outlet be?",o:["To the side or rear, no more than 450 mm behind the rear axle centerline and no more than 600 mm above the ground","Anywhere, as long as it does not reach the driver","Only at the rear, on the car's centerline","Only pointing up, above the main hoop"],e:"The driver must not be exposed to fumes at any speed.",r:"CV 3.1.1, CV 3.1.2"},
+{c:"CV",q:"What is the maximum sound level at the test engine speed?",o:["110 dB(C)","103 dB(C)","90 dB(A)","120 dB(C)"],e:"At idle the limit is 103 dB(C). The test speed corresponds to a mean piston speed of 15.25 m/s, rounded to the nearest 500 rpm.",r:"CV 3.2.1, CV 3.2.2"},
+{c:"CV",q:"What does the Shutdown Circuit (SDC) directly control on a CV?",o:["All electric power to the ignition, the fuel injectors and all fuel pumps","Only the starter motor","The brakes and steering","The radiator fan and water pump"],e:"It acts through at least two mechanical relays and includes, in series, the LVMS, BSPD, three shutdown buttons, BOTS and inertia switch.",r:"CV 4.1.1, CV 4.1.2"},
+{c:"CV",q:"Where may crankcase vent lines connect to the intake system?",o:["Upstream of the restrictor","Downstream of the restrictor, before the engine","Directly into the exhaust","Anywhere on the intake manifold"],e:"Crankcase breathers that pass through the oil catch tank to the exhaust system are prohibited.",r:"CV 1.9.1, CV 1.9.2"},
+{c:"CV",q:"What is the maximum mass of the energy storage elements in a hybrid (HY) system?",o:["3 kg","5 kg","10 kg","1 kg"],e:"The mass includes the casings and tabs integral to them. A hybrid car is marked “HY” next to each vehicle number.",r:"CV 5.2.3, T 12.2.1"},
+
+/* ---------- IN ---------- */
+{c:"IN",q:"What does passing Technical Inspection mean?",o:["The car may run, but it is not a certification of full rules compliance; it must stay compliant throughout the event","The car is certified compliant with the whole rulebook","The car cannot be checked again until the end","The car may be modified freely"],e:"Officials may also inspect points that are not on the Technical Inspection Sheet.",r:"IN 1.2.3, IN 1.2.5, IN 1.2.10"},
+{c:"IN",q:"What must be presented at Pre Inspection?",o:["All helmets, driver equipment, two unused and in-date fire extinguishers, and one set each of dry and wet tires on rims","Just the car","The SES and the TVSD","Just the helmets"],e:"The tire/rim combination presented here must stay the same for the whole event.",r:"IN 2.1.1"},
+{c:"IN",q:"At what angle is the Tilt Test performed?",o:["60°","45°","30°","75°"],e:"It is done with the tallest driver strapped in and all fluids at maximum level. There must be no leaks and all wheels must stay in contact with the table.",r:"IN 7.1.1 – IN 7.1.3"},
+{c:"IN",q:"Which part of Technical Inspection applies only to CVs?",o:["Noise Test","Rain Test","Tilt Test","Brake Test"],e:"The Rain Test is for EVs only. The Tilt Test and Brake Test apply to all cars.",r:"IN 1.1.1"},
+{c:"IN",q:"What must a CV demonstrate in the Brake Test?",o:["Lock all four wheels and stop in a substantially straight line without stalling the engine","Stop from 100 km/h in under 40 m","Lock the front wheels","Show a working ABS"],e:"The wheels may lock one after another. After the test the car must be able to drive on under its own power.",r:"IN 11.1.1, IN 11.1.2, IN 11.1.4"},
+{c:"IN",q:"At the end of the Noise Test the intake is checked for air tightness. How?",o:["The inlet is closed off and the engine must stall","Vacuum is measured with a gauge","Leak-detection spray is applied to the joints","The restrictor diameter is measured"],e:"Before that, the master switch, the cockpit shutdown button and the inertia switch are tested.",r:"IN 10.1.8, IN 10.1.9"},
+{c:"IN",q:"The car is damaged after passing inspection and needs repair. What happens?",o:["The approval is voided; after the repair the car is re-submitted to Technical Inspection","The team repairs it and carries on","The team is disqualified","20 penalty points are deducted"],e:"Removing or damaging the seals placed by the officials also voids the approval.",r:"IN 1.2.12, IN 1.2.13"},
+{c:"IN",q:"Which change is NOT allowed after inspection without the officials' approval?",o:["Moving the complete rear wing to a different position","Adjusting tire pressure","Adjusting brake bias","Adjusting winglet angles"],e:"Winglet angles may be adjusted, but not the position of the complete aerodynamic device relative to the car.",r:"IN 1.5.1"},
+{c:"IN",q:"At Post Inspection the car's weight differs by 6.2 kg from its official weight. How many penalty points does the team get?",o:["40","20","Disqualification","None"],e:"The tolerance is ±5 kg, with 20 penalty points for each kg it is exceeded by. The rulebook gives this exact example: 6.2 kg means 40 points.",r:"IN 12.1.7"},
+{c:"IN",q:"What happens if the car loses a part on track?",o:["Disqualification (DQ) for that run","A 2-second penalty","Disqualification from the event","Nothing, if the part is non-structural"],e:"A violation concerning safety or the environment (e.g. fluid leaks other than plain water) means DQ for everything run since the car last entered the dynamic area.",r:"IN 12.1.5, IN 12.1.6"},
+{c:"IN",q:"Where does the car go after Endurance?",o:["Into parc fermé, where team members have no access","Back to the team's pit","To the driver change area","To the Test Area"],e:"Officials may impound a car at any time to check rules compliance.",r:"IN 12.1.1, IN 12.1.2"},
+{c:"IN",q:"Who must the team appoint for Technical Inspection?",o:["A team member familiar with the car who can show compliance with every point on the Technical Inspection Sheet","The faculty advisor","The team captain, mandatorily","The tallest driver"],e:"If this person cannot do so, or the car is not ready, inspection is aborted and the team is asked to leave the inspection area.",r:"IN 1.4.1 – IN 1.4.3"},
+
+/* ---------- S ---------- */
+{c:"S",q:"How long may the Business Plan Presentation (BPP) last?",o:["10 minutes, followed by questions","15 minutes, with questions during it","5 minutes","20 minutes including questions"],e:"The presentation is not interrupted by questions. Anything presented after the 10 minutes is not scored.",r:"S 2.2.1, S 2.2.2"},
+{c:"S",q:"Which business model is accepted for the BPP?",o:["A for-profit one built on the team's car or a specific component of it","Any model, including a non-profit","Reselling bought parts","A cloud service unrelated to the car"],e:"If the model fails these requirements, 15 points are deducted from the team's BPP score.",r:"S 2.1.1, S 2.1.2, S 2.4.2"},
+{c:"S",q:"Who may answer the judges' questions in the BPP?",o:["Only members introduced at the start who presented part of the 10 minutes","Any team member in the room","Only the team captain","The faculty advisor"],e:"All participating team members must be introduced to the judges at the start of the presentation.",r:"S 2.2.4"},
+{c:"S",q:"Which documents make up the Cost Report Documents (CRD)?",o:["The CCBOM, the Supporting Material File and the Cost and Emissions Explanation File","The full BOM, the invoices and the TVSD","Only the CCBOM","The CCBOM and the Business Plan Executive Summary"],e:"The documents presented at the event must be identical to those submitted, or the CCBOM Discussion scores 0 points.",r:"S 3.3.1, S 3.3.6"},
+{c:"S",q:"For which systems must a CCBOM be submitted in 2027?",o:["Grounded Low Voltage System and Chassis and Body","Brake System and Steering System","All systems of the car","Engine and Tractive System and Drivetrain"],e:"S 3.4.5 lists all the systems; for 2027 only these two are required.",r:"S 3.4.6"},
+{c:"S",q:"What does the CCBOM carbon footprint cover?",o:["A cradle-to-gate assessment: raw materials, manufacturing, assembly and transport between steps, excluding R&D","Material emissions only","The full life cycle, including racing","Only transport to the event"],e:"It is given in kg CO₂e for each part, manufacturing process and assembly process.",r:"S 3.4.2, S 3.4.22 – S 3.4.25"},
+{c:"S",q:"Which item is NOT included in the CCBOM?",o:["Hand tools and power tools","Welding jigs","Molds","Assembly processes"],e:"Tooling specific to the part geometry (jigs, molds, dies) must be included.",r:"S 3.4.2, S 3.4.14, S 3.4.15"},
+{c:"S",q:"In which currency are CCBOM costs shown?",o:["EUR, stating the exchange rates used","RON","USD","The host country's currency"],e:"There is no maximum cost and no receipts are required. The calculations for machine hourly rates and wages must be shown.",r:"S 3.4.19 – S 3.4.21"},
+{c:"S",q:"How are the 100 Cost and Manufacturing points split?",o:["CCBOM Discussion 50, Cost Understanding 25, Real Case 25","Report 50, presentation 50","CCBOM 75, Real Case 25","Three equal parts"],e:"The Real Case task is published on the competition website before the event.",r:"S 3.7.2, S 3.2.5"},
+{c:"S",q:"Which drawings must the Technical Vehicle System Documentation (TVSD) include?",o:["Three technical drawings (front, top, side), not renderings, with the overall dimensions annotated","A 3D rendering","Manufacturing drawings of every part","The full wiring diagram"],e:"The TVSD is also used to sort teams into Engineering Design judging queues.",r:"S 4.2.3, S 4.2.4"},
+{c:"S",q:"Which Engineering Design category is worth the most points?",o:["Vehicle Performance (30)","Overall Vehicle Concept (25)","Mechanical / Structural (15)","TVSD (5)"],e:"Engineering Design is worth 150 points in total, split across nine categories (Table 5).",r:"S 4.5.2, S 4.5.3, Table 5"},
+{c:"S",q:"How are proprietary components (bought as finished items) judged in Engineering Design?",o:["Only on the team's selection and application of the unit","Like any part designed by the team","Not at all, and points are deducted","By their price"],e:"Judges may deduct points if the team cannot adequately explain the engineering and construction of the car.",r:"S 4.1.2, S 4.4.3"},
+{c:"S",q:"May the car be presented at the static disciplines before it has passed Technical Inspection?",o:["Yes, but fully assembled and ready-to-race","No","Yes, even unfinished","Only with written approval from the officials"],e:"Judges will not evaluate a car they consider unfinished.",r:"S 1.1.1 – S 1.1.3"},
+
+/* ---------- D ---------- */
+{c:"D",q:"How many drivers may a team have in total?",o:["At least 3, at most 4","At least 2, at most 4","Exactly 4","At least 1, at most 6"],e:"No more than two drivers may drive in each dynamic discipline.",r:"D 1.2.1, D 1.2.5"},
+{c:"D",q:"In how many dynamic disciplines may a single driver compete?",o:["Two at most","Three at most","All of them","Only one"],e:"Endurance and Efficiency count as one discipline. A driver may drive at most two runs in each discipline.",r:"D 1.2.2 – D 1.2.4"},
+{c:"D",q:"How many runs does a team get in Endurance?",o:["One","Two","Four","As many as the schedule allows"],e:"Acceleration and Skidpad have 2 runs each, Autocross has 4 (Table 7).",r:"D 1.3.1, Table 7"},
+{c:"D",q:"How many team members may be in the dynamic area at the same time?",o:["Four, including the driver","Six","Two, plus the driver","Any number, as long as they wear vests"],e:"Each team gets four dynamic vests. The driver does not wear the vest in the car; it is attached to the push bar.",r:"D 1.4.2 – D 1.4.4"},
+{c:"D",q:"Which measuring devices may be used during a track walk?",o:["Analog devices only","Any device, including GPS","Only a phone","None"],e:"Track walks are held before Autocross and Endurance.",r:"D 1.5.1, D 1.5.2"},
+{c:"D",q:"What does the blue flag mean?",o:["Pull into the passing zone to be passed by a faster car","The track is slippery","The session is over","Report to the officials for a discussion"],e:"At the end of the passing zone the driver obeys the track marshals and re-enters the track on the green flag.",r:"D 2.1.5, D 7.4.4"},
+{c:"D",q:"What does the black flag with an orange dot mean?",o:["Pull into the driver change area for a mechanical inspection","Disqualification","Last lap","Danger ahead, slow down"],e:"The plain black flag calls the driver in to discuss an incident with the officials; a time penalty may follow.",r:"D 2.1.3, D 2.1.4"},
+{c:"D",q:"What must the driver do when a red flag is shown?",o:["Come to an immediate, safe and controlled stop on track and follow the marshals' directions","Drive back to the pits","Slow down and not overtake","Leave the track at the first opportunity"],e:"A yellow flag means slow down and no overtaking. The checkered flag means the session is over.",r:"D 2.1.6, D 2.1.8, D 2.1.9"},
+{c:"D",q:"What is the penalty for failing to obey a flag?",o:["1 minute","10 seconds","Immediate disqualification","2 seconds"],e:"Flag signals are commands that must be obeyed immediately and without question.",r:"D 10.1.8, D 2.1.1"},
+{c:"D",q:"Which of these is prohibited during the dynamic disciplines?",o:["Driving in reverse and push starts","One-way telemetry from the car","Starting with the on-board starter","Changing tires when the track becomes wet"],e:"Burnouts are prohibited too. The car must be able to start and restart without external assistance or batteries at all times.",r:"D 2.2.1, D 2.3.2 – D 2.3.5"},
+{c:"D",q:"What does the Skidpad track look like?",o:["A figure of eight made of two pairs of concentric circles, with 15.25 m inner circles","A single 30 m circle","A 75 m straight with a slalom","A 200 m oval"],e:"The circle centers are 18.25 m apart, the outer circles are 21.25 m in diameter and the driving path is 3 m wide.",r:"D 4.1.1 – D 4.1.5"},
+{c:"D",q:"In what order is the Skidpad run driven?",o:["Two laps on the right circle, then two on the left; the second lap on each circle is timed","Two laps on the left, then two on the right","One lap on each circle, both timed","Four laps on the right"],e:"The run time is the average of the two timed laps; penalties are added after averaging.",r:"D 4.2.1, D 4.2.2"},
+{c:"D",q:"How is the Acceleration event run?",o:["75 m in a straight line, with the car staged 0.30 m behind the start line","100 m with a flying start","75 m with a flying start","200 m from a standing start"],e:"The track is at least 3 m wide, with cones roughly every 5 m.",r:"D 5.1.1, D 5.2.3"},
+{c:"D",q:"About how long is Endurance?",o:["About 22 km, with a driver change halfway","About 11 km, with one driver","About 1.5 km","About 50 km"],e:"One lap is about 1 km. Each driver covers about 11 km.",r:"D 7.1.2, D 7.1.3, D 7.2.2 – D 7.2.4"},
+{c:"D",q:"How much time does the team have for the Endurance driver change?",o:["3 minutes","1 minute","5 minutes","10 minutes"],e:"Any time over 3 minutes is added to the final time. Only three team members, including the drivers, may enter the driver change area.",r:"D 7.5.1, D 7.5.4, D 7.5.9"},
+{c:"D",q:"Where may cars overtake during Endurance?",o:["Only in the designated passing zones, under the marshals' control","Anywhere, if it is safe","On the straights","Nowhere, overtaking is prohibited"],e:"Wheel-to-wheel racing is prohibited.",r:"D 7.4.1, D 7.7.2"},
+{c:"D",q:"What is the penalty for a cone down or out (DOO) in Autocross?",o:["2 seconds","0.2 seconds","10 seconds","DQ for the run"],e:"In Skidpad a DOO costs 0.2 s. An off-course (OC) costs 10 s in Autocross and Endurance and means DQ in Acceleration and Skidpad.",r:"D 10.1.2, D 10.1.7"},
+{c:"D",q:"The car fails to start its run within 30 seconds of the green flag. What happens?",o:["The run is disqualified (DQ)","A 2-minute penalty","It gets another 30 seconds","It waits for another green flag, with no penalty"],e:"This applies to all dynamic disciplines.",r:"D 10.1.11"},
+{c:"D",q:"How does a run that is started but not finished (DNF) count for scoring?",o:["As a disqualification (DQ)","Half points","Minimum points","It is re-run automatically"],e:"To score points in a dynamic discipline, a team needs at least one valid run.",r:"D 1.1.5, D 1.1.9"},
+{c:"D",q:"The track is declared “damp”. Which tires may you use?",o:["Dry or wet tires","Wet tires only","Dry tires only","New tires only"],e:"On “dry” only dry tires are allowed, on “wet” only wet tires. Only one set of each type may be used during the dynamic disciplines.",r:"D 3.2.1, D 3.2.4"},
+{c:"D",q:"How is the Efficiency Factor calculated?",o:["EF = T² · E: driving time squared multiplied by the fuel used","EF = E / T","EF = fuel used only","EF = T · E²"],e:"For E85, the measured fuel mass is divided by 1.45 to be comparable with 98 RON. Only teams that score the minimum points in Endurance are considered for Efficiency.",r:"D 9.4.2, D 7.9.2, D 7.9.4"},
+{c:"D",q:"What happens to a car that breaks down during Endurance?",o:["It is removed from the track and may not re-enter","The team repairs it on track","It gets 2 minutes for repairs","It may re-enter after the driver change"],e:"Teams may not work on or refuel their cars during the run.",r:"D 7.7.1, D 7.7.6"}
+];
+
+/* ---------- storage ---------- */
+const LS = "fsq27:";
+function lsGet(k){try{const v=localStorage.getItem(LS+k);return v?JSON.parse(v):null}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(LS+k,JSON.stringify(v))}catch(e){}}
+
+const saved = lsGet("settings") || {};
+const st = {
+  mode: saved.mode === "test" ? "test" : "learn",
+  ch: new Set(Array.isArray(saved.ch) && saved.ch.some(c=>CHN[c]) ? saved.ch.filter(c=>CHN[c]) : CH.map(c=>c[0])),
+  n: [10,20,30,0].includes(saved.n) ? saved.n : 20
+};
+let personName = lsGet("name") || "";
+let run = null;
+
+const $ = s => document.querySelector(s);
+function h(tag, attrs, ...kids){
+  const el = document.createElement(tag);
+  if(attrs) for(const [k,v] of Object.entries(attrs)){
+    if(v===null||v===undefined||v===false) continue;
+    if(k==="class") el.className=v;
+    else if(k==="text") el.textContent=v;
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2),v);
+    else el.setAttribute(k, v===true?"":v);
+  }
+  for(const kid of kids.flat()){ if(kid===null||kid===undefined||kid===false) continue; el.append(kid.nodeType?kid:document.createTextNode(String(kid))); }
+  return el;
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const LETTERS = ["A","B","C","D"];
+const countIn = c => Q.filter(q=>q.c===c).length;
+function poolSize(){return Q.filter(q=>st.ch.has(q.c)).length}
+
+/* ---------- selection ---------- */
+function pick(chs, n){
+  const groups = chs.map(c=>shuffle(Q.map((q,i)=>q.c===c?i:-1).filter(i=>i>=0)));
+  const total = groups.reduce((s,g)=>s+g.length,0);
+  if(!n || n>=total) return shuffle(groups.flat());
+  const raw = groups.map(g=>n*g.length/total);
+  const alloc = raw.map(Math.floor);
+  let left = n - alloc.reduce((s,x)=>s+x,0);
+  raw.map((r,i)=>[r-alloc[i],i]).sort((a,b)=>b[0]-a[0]).forEach(([,i])=>{ if(left>0 && alloc[i]<groups[i].length){alloc[i]++;left--} });
+  return shuffle(groups.flatMap((g,i)=>g.slice(0,alloc[i])));
+}
+
+/* ---------- settings UI ---------- */
+const CH_HINT = "The EV and Driverless Cup chapters are not included, because the team competes with a combustion car.";
+function saveSettings(){lsSet("settings",{mode:st.mode,ch:[...st.ch],n:st.n})}
+function renderSettings(){
+  $("#mode-learn").setAttribute("aria-pressed", String(st.mode==="learn"));
+  $("#mode-test").setAttribute("aria-pressed", String(st.mode==="test"));
+  $("#mode-hint").textContent = st.mode==="learn"
+    ? "After each answer you see whether it is correct, the explanation and the rule reference."
+    : "You answer every question without hints. At the end you see your score, a breakdown by chapter and what you got wrong.";
+
+  const segCh = $("#seg-ch"); segCh.innerHTML="";
+  const all = st.ch.size===CH.length;
+  segCh.append(h("button",{type:"button",class:"chip",id:"ch-all","aria-pressed":String(all),onclick:()=>{
+    if(all){ st.ch.clear(); } else { CH.forEach(c=>st.ch.add(c[0])); }
+    saveSettings(); renderSettings();
+  }},"All",h("span",{class:"cnt"},String(Q.length))));
+  CH.forEach(([k,name])=>{
+    segCh.append(h("button",{type:"button",class:"chip",id:"ch-"+k,"aria-pressed":String(st.ch.has(k)),onclick:()=>{
+      st.ch.has(k)?st.ch.delete(k):st.ch.add(k); saveSettings(); renderSettings();
+    }},k+" · "+name,h("span",{class:"cnt"},String(countIn(k)))));
+  });
+  const none = st.ch.size===0;
+  const hint = $("#ch-hint");
+  hint.textContent = none ? "Select at least one chapter." : CH_HINT;
+  hint.classList.toggle("warn", none);
+
+  const segN = $("#seg-n"); segN.innerHTML="";
+  const ps = poolSize();
+  [10,20,30,0].forEach(n=>{
+    const label = n ? String(n) : "All ("+ps+")";
+    segN.append(h("button",{type:"button",id:"n-"+n,"aria-pressed":String(st.n===n),onclick:()=>{st.n=n;saveSettings();renderSettings()}},label));
+  });
+  $("#btn-start").disabled = none;
+  updateSummary();
+}
+function chaptersLabel(set){
+  return set.size===CH.length ? "all chapters" : [...set].sort((a,b)=>CH.findIndex(c=>c[0]===a)-CH.findIndex(c=>c[0]===b)).join(", ");
+}
+function updateSummary(){
+  const ps = poolSize();
+  const n = st.n && st.n<ps ? st.n : ps;
+  $("#sumtext").innerHTML = "";
+  $("#sumtext").append(h("b",null,st.mode==="learn"?"Learning":"Test")," · ",chaptersLabel(st.ch)," · ",n+(n===1?" question":" questions"));
+}
+$("#mode-learn").addEventListener("click",()=>{st.mode="learn";saveSettings();renderSettings()});
+$("#mode-test").addEventListener("click",()=>{st.mode="test";saveSettings();renderSettings()});
+$("#btn-start").addEventListener("click",()=>{ if(st.ch.size===0) return; $("#setup").open=false; start(); focusCard(); });
+
+/* ---------- run ---------- */
+function start(indices){
+  const ids = indices || pick([...st.ch], st.n);
+  run = { mode: st.mode, chSet: indices ? new Set(indices.map(i=>Q[i].c)) : new Set(st.ch), items: ids.map(qi=>({qi, ord: shuffle([0,1,2,3]), pick: null, locked:false})), idx: 0, done: false, retry: !!indices };
+  renderQ();
+}
+function focusCard(){
+  const card = $("#quiz");
+  const r = card.getBoundingClientRect();
+  if(r.top < 0 || r.top > window.innerHeight*0.6){
+    card.scrollIntoView({block:"start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  }
+}
+function correctCount(){return run.items.filter(it=>it.pick===0).length}
+function answeredCount(){return run.items.filter(it=>it.pick!==null).length}
+
+function renderQ(){
+  const card = $("#quiz"); card.innerHTML = "";
+  const total = run.items.length;
+  const it = run.items[run.idx], q = Q[it.qi];
+  const learn = run.mode === "learn";
+
+  const tally = learn
+    ? h("span",{class:"tally"},"Correct: ",h("b",{class:"num"},String(correctCount()))," of "+answeredCount())
+    : h("span",{class:"tally"},"Test mode · answers shown at the end");
+  card.append(h("div",{class:"prog"},
+    h("div",{class:"progrow"},
+      h("div",{class:"counter num"},String(run.idx+1).padStart(2,"0"),h("span",null," / "+String(total).padStart(2,"0"))),
+      tally
+    ),
+    h("div",{class:"track",role:"progressbar","aria-valuemin":"0","aria-valuemax":String(total),"aria-valuenow":String(run.idx+1),"aria-label":"Progress"},
+      h("i",{style:"width:"+((run.idx+1)/total*100)+"%"}))
+  ));
+
+  const showRef = learn && it.locked;
+  card.append(h("div",{class:"qhead"},
+    h("span",{class:"chap"},q.c+" · "+CHN[q.c]),
+    showRef ? h("span",{class:"ref",title:"Rule reference"},q.r) : null
+  ));
+  card.append(h("h2",{class:"qtext",id:"qtext"},q.q));
+
+  const list = h("ol",{class:"opts","aria-labelledby":"qtext"});
+  it.ord.forEach((oi,pos)=>{
+    const btn = h("button",{type:"button",class:"opt",id:"opt-"+pos,"data-pos":String(pos)},
+      h("span",{class:"key",text:LETTERS[pos]}),
+      h("span",{class:"otext",text:q.o[oi]}));
+    if(learn && it.locked){
+      btn.disabled = true;
+      if(oi===0) btn.classList.add("is-ok");
+      else if(oi===it.pick) btn.classList.add("is-bad");
+      else btn.classList.add("dim");
+    } else {
+      btn.setAttribute("aria-pressed", String(it.pick===oi));
+      btn.addEventListener("click",()=>choose(pos));
+    }
+    list.append(h("li",null,btn));
+  });
+  card.append(list);
+
+  if(learn && it.locked){
+    const ok = it.pick===0;
+    const corrPos = it.ord.indexOf(0);
+    card.append(h("div",{class:"explain "+(ok?"ok":"bad")},
+      h("span",{class:"verdict"}, ok ? "Correct." : "Wrong. The correct answer is "+LETTERS[corrPos]+"."),
+      h("p",null,q.e),
+      h("p",{class:"src"},"Where to find it: ",h("code",null,q.r))
+    ));
+  }
+
+  const canNext = learn ? it.locked : it.pick!==null;
+  const last = run.idx === total-1;
+  const nextBtn = h("button",{type:"button",class:"primary",id:"btn-next",disabled:!canNext,onclick:next}, last ? "See result" : "Next question");
+  card.append(h("div",{class:"nav"},
+    h("span",{class:"keys"},"Keys: ",h("kbd",null,"1"),"–",h("kbd",null,"4")," or ",h("kbd",null,"A"),"–",h("kbd",null,"D"),", then ",h("kbd",null,"Enter")),
+    nextBtn
+  ));
+}
+function choose(pos){
+  const it = run.items[run.idx];
+  if(run.mode==="learn" && it.locked) return;
+  it.pick = it.ord[pos];
+  if(run.mode==="learn") it.locked = true;
+  renderQ();
+  const nb = $("#btn-next"); if(nb && !nb.disabled) nb.focus({preventScroll:true});
+}
+function next(){
+  const it = run.items[run.idx];
+  if(run.mode==="learn" ? !it.locked : it.pick===null) return;
+  if(run.idx < run.items.length-1){ run.idx++; renderQ(); focusCard(); }
+  else { run.done = true; renderResults(); focusCard(); }
+}
+
+/* ---------- results ---------- */
+function renderResults(){
+  const card = $("#quiz"); card.innerHTML = "";
+  const total = run.items.length, ok = correctCount();
+  const pct = Math.round(ok/total*100);
+  card.append(h("p",{class:"rlabel"},"Result · "+(run.mode==="learn"?"learning":"test")+" mode"+(run.retry?" · retrying mistakes":"")));
+  card.append(h("div",{class:"score"},
+    h("div",{class:"big num"},String(ok),h("span",null," / "+total)),
+    h("div",{class:"pct num"},pct+" %")
+  ));
+
+  const rows = h("div",{class:"chrows"});
+  CH.forEach(([k,name])=>{
+    const its = run.items.filter(x=>Q[x.qi].c===k);
+    if(!its.length) return;
+    const c = its.filter(x=>x.pick===0).length;
+    const p = c/its.length;
+    rows.append(h("div",{class:"chrow"},
+      h("span",null,k+" · "+name),
+      h("span",{class:"bar","aria-hidden":"true"},h("i",{class:p>=.8?"":p>=.5?"mid":"low",style:"width:"+(p*100)+"%"})),
+      h("span",{class:"n"},c+"/"+its.length)
+    ));
+  });
+  card.append(h("p",{class:"rlabel"},"By chapter"), rows);
+
+  const wrong = run.items.filter(x=>x.pick!==0);
+  if(wrong.length){
+    const refs = [...new Set(wrong.map(x=>Q[x.qi].r))];
+    card.append(h("p",{class:"rlabel"},"Rules to reread"), h("p",{class:"reread"},refs.join(" · ")));
+    const ul = h("ul",{class:"miss"});
+    wrong.forEach(x=>{
+      const q = Q[x.qi];
+      ul.append(h("li",null,
+        h("p",{class:"mq"},q.q),
+        h("p",{class:"ans y"},"Your answer: "+q.o[x.pick]),
+        h("p",{class:"ans c"},"Correct: "+q.o[0]),
+        h("p",{class:"mexp"},q.e),
+        h("span",{class:"mref"},q.r)
+      ));
+    });
+    card.append(h("p",{class:"rlabel"},"What you got wrong"), ul);
+  } else {
+    card.append(h("p",{class:"allgood"},"You answered every question correctly."));
+  }
+
+  card.append(h("div",{class:"actions"},
+    wrong.length ? h("button",{type:"button",class:"primary",id:"btn-retry",onclick:()=>{ start(shuffle(wrong.map(x=>x.qi))); focusCard(); }},"Retry mistakes only ("+wrong.length+")") : null,
+    h("button",{type:"button",class:wrong.length?"ghost":"primary",id:"btn-again",onclick:()=>{ start(); focusCard(); }},"New quiz, same settings")
+  ));
+
+  // share
+  const input = h("input",{type:"text",id:"name",autocomplete:"name",placeholder:"First and last name",value:personName});
+  input.addEventListener("input",()=>{personName=input.value;lsSet("name",personName)});
+  const toast = h("p",{class:"toast",id:"toast","aria-live":"polite"});
+  const outWrap = h("div",{id:"copywrap",hidden:true});
+  const copyBtn = h("button",{type:"button",class:"ghost",id:"btn-copy",onclick:()=>{
+    const text = summaryText(ok,total,pct,wrong);
+    const fallback = ()=>{
+      outWrap.innerHTML="";
+      const ta = h("textarea",{class:"copyout",id:"copyout",readonly:true});
+      ta.value = text; outWrap.append(ta); outWrap.hidden=false; ta.focus(); ta.select();
+      toast.textContent = "The text is selected. Copy it with Ctrl+C or from your phone's menu.";
+    };
+    try{
+      navigator.clipboard.writeText(text).then(()=>{toast.textContent="Result copied.";outWrap.hidden=true}).catch(fallback);
+    }catch(e){fallback()}
+  }},"Copy result");
+  card.append(h("div",{class:"share"},
+    h("label",{for:"name"},"Your name, so it appears in the copied result (optional)"),
+    h("div",{class:"sharerow"},input,copyBtn),
+    toast, outWrap
+  ));
+}
+function summaryText(ok,total,pct,wrong){
+  const lines = [];
+  lines.push("FS Rules 2027 Quiz — T.U. Iași Racing");
+  if(personName.trim()) lines.push("Name: "+personName.trim());
+  lines.push("Mode: "+(run.mode==="learn"?"learning":"test")+(run.retry?" (retrying mistakes)":""));
+  lines.push("Chapters: "+chaptersLabel(run.chSet));
+  lines.push("Score: "+ok+"/"+total+" ("+pct+" %)");
+  CH.forEach(([k])=>{
+    const its = run.items.filter(x=>Q[x.qi].c===k);
+    if(its.length) lines.push("  "+k+": "+its.filter(x=>x.pick===0).length+"/"+its.length);
+  });
+  if(wrong.length) lines.push("Rules to reread: "+[...new Set(wrong.map(x=>Q[x.qi].r))].join("; "));
+  let date;
+  try{ date = new Date().toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}); }catch(e){ date = new Date().toISOString().slice(0,10); }
+  lines.push("Date: "+date);
+  return lines.join("\n");
+}
+
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown",e=>{
+  if(!run || run.done) return;
+  const t = e.target;
+  if(t && (t.tagName==="INPUT"||t.tagName==="TEXTAREA")) return;
+  if(e.metaKey||e.ctrlKey||e.altKey) return;
+  const k = e.key.toLowerCase();
+  const map = {"1":0,"2":1,"3":2,"4":3,"a":0,"b":1,"c":2,"d":3};
+  if(k in map){ e.preventDefault(); choose(map[k]); return; }
+  if(e.key==="Enter"){
+    const nb = $("#btn-next");
+    if(nb && !nb.disabled && (!t || t===document.body)){ e.preventDefault(); next(); }
+  }
+});
+
+renderSettings();
+start();
+})();
+</script>
+
+</body></html>
